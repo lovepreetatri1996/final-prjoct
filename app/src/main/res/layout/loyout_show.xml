@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:textSize="20dp"
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:text="Logout"/>
+
+
+    <TextView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:textSize="20dp"
+        android:layout_height="40dp"
+        android:text="Are you sure?.."/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Logout"
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/yes"
+
+            android:layout_margin="5dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/no"
+
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

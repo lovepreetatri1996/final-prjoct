@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.example.asus.mainproject.FilterEventActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FILTER BY LOCATION"
+        android:textColor="#000"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:text="Location"
+        android:gravity="center"
+
+
+        android:id="@+id/location"
+        android:background="@drawable/rounded"
+        android:textSize="20sp"
+        android:onClick="select_location"
+        android:layout_marginTop="30dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FILTER"
+        android:layout_marginTop="20dp"
+        android:onClick="filter"
+        />
+
+</LinearLayout>
