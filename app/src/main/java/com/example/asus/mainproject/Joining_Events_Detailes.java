@@ -1,8 +1,12 @@
 package com.example.asus.mainproject;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatRatingBar;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -10,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asus.mainproject.dataModels.JoinEvent;
+import com.example.asus.mainproject.dataModels.RatingData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -107,4 +112,59 @@ public class Joining_Events_Detailes extends AppCompatActivity {
 
         finish();
     }
+
+    public void rating_dialog(View view) {
+
+
+          final Dialog   dialogshow=new Dialog(Joining_Events_Detailes.this, R.style.Theme_Dialog);
+            dialogshow.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialogshow.setContentView(R.layout.rating_dialog);
+
+            final AppCompatRatingBar bar = dialogshow.findViewById(R.id.rating_bar);
+
+            bar.setNumStars(5);
+
+
+
+            Button cancel_it = dialogshow.findViewById(R.id.cancel_it);
+
+            Button apply = dialogshow.findViewById(R.id.apply);
+
+            cancel_it.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialogshow.dismiss();
+                }
+            });
+
+            apply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    RatingData data = new RatingData(bar.getRating());
+
+                    FirebaseAuth auth = FirebaseAuth.getInstance();
+
+                    String email = auth.getCurrentUser().getEmail().replace(".", "");
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
+                    database.getReference().child("event_rating").child(email).child(getIntent().getStringExtra("event_key")).setValue(data);
+
+
+                    dialogshow.dismiss();
+
+
+                }
+            });
+
+
+            dialogshow.show();
+
+
+
+    }
+
+
 }

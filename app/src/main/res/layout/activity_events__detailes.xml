@@ -383,7 +383,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -426,7 +426,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -469,7 +468,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -512,7 +511,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -555,7 +554,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -598,7 +597,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -641,7 +639,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -684,7 +682,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -727,7 +725,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -770,7 +768,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -813,7 +811,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
+
                         android:orientation="horizontal">
                         <CheckBox
                             android:layout_width="wrap_content"
@@ -826,6 +824,7 @@
                             android:layout_width="160dp"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
+
                             android:layout_marginLeft="10dp"
                             android:textColor="#000"
                             android:textStyle="bold"
@@ -859,6 +858,42 @@
 
 
 
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="10dp">
+
+
+                    <android.support.v7.widget.AppCompatRatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:max="5"
+                        android:isIndicator="true"
+                        android:id="@+id/rating_bar"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" ( "
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:id="@+id/total_rating"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" )"/>
 
                 </LinearLayout>
 

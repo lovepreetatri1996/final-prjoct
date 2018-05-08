@@ -14,7 +14,7 @@ android:id="@+id/event_cell"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="8dp"
-
+    android:padding="5dp"
     android:background="@drawable/rounded"
 
     android:layout_marginTop="5dp"

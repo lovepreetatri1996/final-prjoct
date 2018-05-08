@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.support.v7.widget.AppCompatRatingBar;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asus.mainproject.dataModels.JoinEvent;
+import com.example.asus.mainproject.dataModels.RatingData;
 import com.example.asus.mainproject.fragments.Events;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,6 +31,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Events_Detailes extends AppCompatActivity {
 
 
@@ -38,6 +43,10 @@ public class Events_Detailes extends AppCompatActivity {
     private ImageView doctor,sweeper,transprotation,video,clockroom,infodesk,accountant,electri,network,waste,helper;
 Dialog dialogshow;
 
+private AppCompatRatingBar ratingBar ;
+
+private TextView total_rating ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +54,9 @@ Dialog dialogshow;
         setContentView(R.layout.activity_events__detailes);
 
 
+        ratingBar = findViewById(R.id.rating_bar);
+
+        total_rating = findViewById(R.id.total_rating);
 
 
 
@@ -202,6 +214,7 @@ Dialog dialogshow;
         get_all_joining_events();
 
 
+        get_events_rating();
 
     }
 
@@ -820,6 +833,59 @@ Dialog dialogshow;
 
         dialogshow.setTitle(message);
         dialogshow.show();
+
+    }
+
+    private void get_events_rating()
+    {
+
+        final List<Float> ratings = new ArrayList<>();
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
+        String email = auth.getCurrentUser().getEmail().replace(".","");
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        database.getReference().child("event_rating").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for ( DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
+                {
+                    for(DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren())
+                    {
+                        if(dataSnapshot2.getKey().equals(getIntent().getStringExtra("event_key")))
+                        {
+                            RatingData ratingData = dataSnapshot2.getValue(RatingData.class);
+
+                            ratings.add(ratingData.rating);
+                        }
+                    }
+
+                }
+
+                float sum = 0 ;
+
+                for ( Float i : ratings) {
+                    sum += i;
+                }
+                float average = sum / ratings.size();
+
+                ratingBar.setRating(average);
+
+                total_rating.setText(String.valueOf(ratings.size()));
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
 
     }
 

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.asus.mainproject.Events_Detailes;
@@ -136,6 +137,8 @@ public class Events extends Fragment {
 
         public ImageView joined_event ;
 
+
+
         public view_holder(View itemView) {
             super(itemView);
 
@@ -147,6 +150,8 @@ public class Events extends Fragment {
             event_cell=itemView.findViewById(R.id.event_cell);
 
             joined_event = itemView.findViewById(R.id.joined_event);
+
+
 
 
         }
@@ -303,6 +308,45 @@ public class Events extends Fragment {
 
 
     }
+
+
+    private void get_events_rating()
+    {
+
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
+        String email = auth.getCurrentUser().getEmail().replace(".","");
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        database.getReference().child("event_rating").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                join_list.clear();
+
+                for ( DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
+                {
+                    JoinEvent data = dataSnapshot1.getValue(JoinEvent.class);
+
+                    join_list.add(data);
+                }
+
+                get_data();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
+
+
 
 
 }
