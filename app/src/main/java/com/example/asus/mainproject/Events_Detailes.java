@@ -1,10 +1,12 @@
 package com.example.asus.mainproject;
 
+import android.app.Dialog;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -33,8 +35,8 @@ public class Events_Detailes extends AppCompatActivity {
 
     private CheckBox c_doctor,c_sweeper,c_transportation,c_video,c_clockroom,c_infodesk,c_accountant,c_electric,c_network,c_waste,c_helper;
 
-    private ImageView clock,doctor,sweeper,transprotation,video,clockroom,infodesk,accountant,electri,network,waste,helper;
-
+    private ImageView doctor,sweeper,transprotation,video,clockroom,infodesk,accountant,electri,network,waste,helper;
+Dialog dialogshow;
 
 
     @Override
@@ -57,6 +59,89 @@ public class Events_Detailes extends AppCompatActivity {
         electri= findViewById(R.id.electrician);
         waste= findViewById(R.id.waste_picker);
         helper= findViewById(R.id.helper);
+        helper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("this manager will take care of the inventory kept inside the clock room  ");
+
+            }
+        });
+
+        waste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("this person will provide proper sanitation facilities inside and around the event and if there is any sanitation problem to any of the visitors in the event, this very person will solve this problem and provide healthy environment in the event  ");
+
+            }
+        });
+
+        electri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("electricians will provide you with the solutions if any problem arises such as lightning issue in the bulbs etc   ");
+
+            }
+        });
+
+        network.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("network provider will provide volunteers with good connectivity of internet and in case any problem arises due to network issue this person wil efficiently solve this problem  ");
+
+            }
+        });
+
+
+
+        accountant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("this person induces the entries regarding the volunteers registering into the event  ");
+            }
+        });
+
+        infodesk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("it contains all the information regarding the event  ");
+            }
+        });
+
+        clockroom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("this manager will take care of the inventory kept inside the clock room  ");
+
+            }
+        });
+        video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("in case any person needs picture or video during the event , will be provided with this facility during the event ");
+
+            }
+        });
+        transprotation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("there will be all time availability of the drivers in case anyone needs to move their bagages and any other important items from one place to another ");
+
+            }
+        });
+        doctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("we provide u with the doctors for your help in case any mishappening occurs during the event. ");
+            }
+        });
+        sweeper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myshow("sweepers are provided in the event for the cleanliness and refreshing environment of the event ");
+
+            }
+        });
+
 
 
 
@@ -68,7 +153,10 @@ public class Events_Detailes extends AppCompatActivity {
         TextView event_activity_two=findViewById(R.id.activity_two);
         TextView event_activity_three=findViewById(R.id.activity_three);
         TextView event_activity_four=findViewById(R.id.activity_four);
+        TextView  place_txt = findViewById(R.id.place_txt);
+
         TextView event_activity_five=findViewById(R.id.activity_five);
+
 
 
         c_doctor=findViewById(R.id.c_doctor);
@@ -98,6 +186,7 @@ public class Events_Detailes extends AppCompatActivity {
         String activityfive= getIntent().getStringExtra("activityfive");
 
 
+        place_txt.setText(location);
 
         event_name.setText(name);
         event_date.setText(date);
@@ -205,7 +294,7 @@ public class Events_Detailes extends AppCompatActivity {
                                {
                                    c_infodesk.setChecked(true);
                                }
-                               if (rol.equals("video")) {
+                               if (rol.equals("video ")) {
 
                                    c_video.setChecked(true);
                                }
@@ -213,11 +302,11 @@ public class Events_Detailes extends AppCompatActivity {
 
                                    c_transportation.setChecked(true);
                                }
-                               if (rol.equals("clock room")) {
+                               if (rol.equals("clock ")) {
 
                                    c_clockroom.setChecked(true);
                                }
-                               if (rol.equals("network")) {
+                               if (rol.equals("network ")) {
 
                                    c_network.setChecked(true);
 
@@ -226,7 +315,7 @@ public class Events_Detailes extends AppCompatActivity {
 
                                    c_helper.setChecked(true);
                                }
-                               if (rol.equals("waste")) {
+                               if (rol.equals("waste ")) {
 
                                    c_waste.setChecked(true);
                                }
@@ -333,7 +422,7 @@ public class Events_Detailes extends AppCompatActivity {
 
                                         info_desk_num ++;
                                     }
-                                        if (rol.equals("video")) {
+                                        if (rol.equals("video ")) {
 
                                             video_num ++;
                                         }
@@ -341,7 +430,7 @@ public class Events_Detailes extends AppCompatActivity {
 
                                            transportation_num ++;
                                         }
-                                        if (rol.equals("clock room")) {
+                                        if (rol.equals("clock")) {
 
                                             clock_num ++;
                                         }
@@ -443,7 +532,7 @@ public class Events_Detailes extends AppCompatActivity {
 
                             c_clockroom.setVisibility(View.VISIBLE);
 
-                            clock.setVisibility(View.VISIBLE);
+                            clockroom.setVisibility(View.VISIBLE);
 
                             clock_et.setVisibility(View.VISIBLE);
 
@@ -575,6 +664,7 @@ public class Events_Detailes extends AppCompatActivity {
 
         if(c_clockroom.isChecked())
         {
+            role=role+"clock room,";
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -604,6 +694,7 @@ public class Events_Detailes extends AppCompatActivity {
 
         if(c_network.isChecked())
         {
+            role=role+"network,";
           /*  try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -618,6 +709,7 @@ public class Events_Detailes extends AppCompatActivity {
 
         if(c_accountant.isChecked())
         {
+            role=role+"account,";
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -633,6 +725,7 @@ public class Events_Detailes extends AppCompatActivity {
 
         if(c_electric.isChecked())
         {
+            role=role+"electric,";
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -649,6 +742,7 @@ public class Events_Detailes extends AppCompatActivity {
 
         if(c_waste.isChecked())
         {
+            role=role+"waste,";
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -662,7 +756,9 @@ public class Events_Detailes extends AppCompatActivity {
         }
 
         if(c_helper.isChecked())
+
         {
+            role=role+"helper,";
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -701,6 +797,29 @@ public class Events_Detailes extends AppCompatActivity {
 
 
 
+
+    }
+
+    public void myshow(String message){
+        dialogshow=new Dialog(Events_Detailes.this, R.style.Theme_Dialog);
+        dialogshow.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogshow.setContentView(R.layout.info_dialog);
+
+        TextView info = dialogshow.findViewById(R.id.info);
+
+        info.setText(message);
+
+        Button got_it = dialogshow.findViewById(R.id.got_it);
+
+        got_it.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogshow.dismiss();
+            }
+        });
+
+        dialogshow.setTitle(message);
+        dialogshow.show();
 
     }
 

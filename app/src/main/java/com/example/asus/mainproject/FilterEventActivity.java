@@ -31,7 +31,7 @@ public class FilterEventActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 100 && resultCode == RESULT_OK)
+        if(requestCode == 100 && resultCode == 200)
         {
 
             location.setText(data.getStringExtra("place"));

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.asus.mainproject.Events_Detailes;
 import com.example.asus.mainproject.FilterEventActivity;
+import com.example.asus.mainproject.Joining_Events_Detailes;
 import com.example.asus.mainproject.R;
 import com.example.asus.mainproject.dataModels.EventData;
 import com.example.asus.mainproject.dataModels.JoinEvent;
@@ -83,19 +84,22 @@ public class JoiningEventFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                list.clear();
+
                 for ( DataSnapshot snap : dataSnapshot.getChildren() )
                 {
                     for ( DataSnapshot snap2 : snap.getChildren())
                     {
                         EventData data = snap2.getValue(EventData.class);
 
-                        EventData data2 = new EventData(data.name , data.date , data.time ,data.description , data.activity_one , data.activity_two , data.activity_three ,
-                                data.activity_four , data.activity_five  , data.location , snap2.getKey() , snap.getKey());
 
                         for(JoinEvent join_data : join_list)
                         {
                             if(join_data.event_key.equals(snap2.getKey()))
                             {
+                                EventData data2 = new EventData(data.name , data.date , data.time ,data.description , data.activity_one , data.activity_two , data.activity_three ,
+                                        data.activity_four , data.activity_five  , data.location , join_data.role ,  snap2.getKey() , snap.getKey());
+
                                 list.add(data2);
 
                             }
@@ -165,7 +169,7 @@ public class JoiningEventFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    Intent i = new Intent(getContext() , Events_Detailes.class);
+                    Intent i = new Intent(getContext() , Joining_Events_Detailes.class);
 
                     i.putExtra("name" , data.name);
                     i.putExtra("date" , data.date);
@@ -181,6 +185,7 @@ public class JoiningEventFragment extends Fragment {
 
                     i.putExtra("event_email_key" , data.email_key);
                     i.putExtra("event_key" , data.key);
+                    i.putExtra("role" , data.members_required);
 
                     startActivity(i);
 
@@ -210,6 +215,7 @@ public class JoiningEventFragment extends Fragment {
        database.getReference().child("joined_event").child(email).addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(DataSnapshot dataSnapshot) {
+               join_list.clear();
 
                for ( DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                {

@@ -468,6 +468,37 @@ public class Add_Event_Detailes extends Fragment {
                           event_activity_four.setText("");
                           event_activity_five.setText("");
 
+
+
+
+
+                          doctor.setText("");
+                           sweeper.setText("");
+                           account.setText("");
+                           electric.setText("");
+                           network.setText("");
+                          helper.setText("");
+                        waste.setText("");
+                        transport.setText("");
+                         infodesk.setText("");
+                       clock.setText("");
+                           video.setText("");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                       }
                   }
               };
