@@ -520,6 +520,8 @@ public class Add_Event_Detailes extends Fragment {
 
 
 
+
+
                FirebaseAuth auth =  FirebaseAuth.getInstance();
 
                String email = auth.getCurrentUser().getEmail().replace("." , "");

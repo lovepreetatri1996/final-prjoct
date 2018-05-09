@@ -22,12 +22,10 @@ public class Slider_viewer_bablu extends AppCompatActivity {
             viewPager.setAdapter(myadapter);
 
         }
-        public void skip(View view){
-            Intent i = new Intent(Slider_viewer_bablu.this , Homes.class);
 
+        public void skip(View view) {
+            Intent i=new Intent(Slider_viewer_bablu.this,Homes.class);
             startActivity(i);
         }
-
-
     }
 }

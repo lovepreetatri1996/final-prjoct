@@ -1,5 +1,6 @@
 package com.example.asus.mainproject;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -18,11 +19,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class FirstPage extends AppCompatActivity {
+    ProgressDialog pd ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_page);
+        pd = new ProgressDialog(FirstPage.this);
+
+        pd.setTitle("Loading ...");
+        pd.setMessage("Please wait ..");
+
 
     }
 
@@ -89,6 +96,7 @@ public class FirstPage extends AppCompatActivity {
                 }
             }
         });
+        pd.show();
 
     }
 

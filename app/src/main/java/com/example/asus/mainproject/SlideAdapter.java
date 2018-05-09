@@ -9,6 +9,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.view.PagerAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 public class SlideAdapter extends PagerAdapter {
     Context context;
     LayoutInflater inflater;
@@ -78,3 +88,4 @@ public class SlideAdapter extends PagerAdapter {
         container.removeView((LinearLayout)object);
     }
 }
+

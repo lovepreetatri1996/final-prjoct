@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -48,6 +49,9 @@ public class Forgot_password extends AppCompatActivity {
                         }
                     }
                 });
+        Toast.makeText(Forgot_password.this, "Link has been sent to your registered email , to change your password ",
+                Toast.LENGTH_LONG).show();
+        finish();
 
 
     }
