@@ -239,7 +239,7 @@
 
                 <EditText
                     android:id="@+id/password"
-                    android:layout_width="280dp"
+                    android:layout_width="260dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/rounded"
@@ -280,7 +280,7 @@
 
                 <EditText
                     android:id="@+id/confirmpassword"
-                    android:layout_width="280dp"
+                    android:layout_width="260dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/rounded"

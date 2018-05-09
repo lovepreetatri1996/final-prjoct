@@ -67,7 +67,7 @@ public class EditEventInfo extends AppCompatActivity {
                     EventData data = d.getValue(EventData.class);
 
                     EventData data2 = new EventData(data.name , data.date , data.time ,data.description , data.activity_one , data.activity_two , data.activity_three ,
-                            data.activity_four , data.activity_five , data.location , d.getKey());
+                            data.activity_four , data.activity_five , data.location , data.members_required , d.getKey());
                     list.add(data2);
 
 

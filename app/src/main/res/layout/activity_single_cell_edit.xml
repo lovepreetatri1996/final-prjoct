@@ -324,64 +324,451 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2"
-                    >
-                    <LinearLayout
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text=" Type of Members required for event: "
+
+                        android:textSize="15dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="15dp">
-                        <TextView
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Male"
-
-                            android:textSize="15dp" />
+                            android:id="@+id/c_doctor"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Doctors"/>
                         <EditText
 
+                            android:textSize="15dp"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_marginLeft="7dp"
-                            android:inputType="number"
-                            android:maxLines="1"
+                            android:id="@+id/doctor_txt"
+                            android:paddingLeft="5dp"
                             android:maxLength="2"
-                            android:id="@+id/event_male"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
+                            android:inputType="number"
+
                             android:background="@drawable/rounded"
-                            android:paddingLeft="5dp" />
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/doctor"
+                            android:src="@drawable/ic_info"/>
+
 
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="15dp">
-                        <TextView
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Female"
-
-                            android:textSize="15dp" />
-                        <EditText
+                            android:id="@+id/c_sweeper"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
                             android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
                             android:textStyle="bold"
-                            android:id="@+id/event_female"
+                            android:text="Sweepers"/>
+                        <EditText
+
+                            android:textSize="15dp"
+                            android:maxLength="2"
+                            android:paddingLeft="5dp"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_marginLeft="7dp"
+                            android:id="@+id/sweeper_txt"
                             android:inputType="number"
-                            android:maxLines="1"
-                            android:maxLength="1"
+
                             android:background="@drawable/rounded"
-                            android:paddingLeft="5dp" />
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/sweeper"
+                            android:src="@drawable/ic_info"/>
+
 
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:id="@+id/c_transportation"
+                            android:layout_height="wrap_content"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Transportation"/>
+                        <EditText
+
+                            android:textSize="15dp"
+                            android:maxLength="2"
+                            android:paddingLeft="5dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/transportation_txt"
+                            android:inputType="number"
+
+                            android:background="@drawable/rounded"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/transportation"
+                            android:src="@drawable/ic_info"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/c_video"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Videographer"/>
+                        <EditText
+
+                            android:textSize="15dp"
+                            android:layout_width="30dp"
+                            android:maxLength="2"
+                            android:paddingLeft="5dp"
+                            android:id="@+id/videographer_txt"
+                            android:layout_height="30dp"
+                            android:inputType="number"
+
+                            android:background="@drawable/rounded"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/videographer"
+                            android:src="@drawable/ic_info"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/c_clock_room"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Clock Room Manger "/>
+                        <EditText
+
+                            android:textSize="15dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/clock_txt"
+                            android:inputType="number"
+                            android:maxLength="2"
+
+                            android:background="@drawable/rounded"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/clock_room_manager"
+                            android:src="@drawable/ic_info"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/c_info"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Infodesk"/>
+                        <EditText
+
+                            android:textSize="15dp"
+                            android:paddingLeft="5dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:maxLength="2"
+                            android:id="@+id/info_txt"
+                            android:inputType="number"
+
+                            android:background="@drawable/rounded"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/infodesk"
+                            android:src="@drawable/ic_info"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/c_network"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Network Buildup"/>
+                        <EditText
+
+                            android:textSize="15dp"
+                            android:layout_width="30dp"
+                            android:maxLength="2"
+                            android:paddingLeft="5dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/network_txt"
+                            android:inputType="number"
+
+                            android:background="@drawable/rounded"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/network"
+                            android:src="@drawable/ic_info"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/c_account"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Accountant"/>
+                        <EditText
+
+                            android:textSize="15dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/accountant_txt"
+                            android:maxLength="2"
+                            android:paddingLeft="5dp"
+                            android:inputType="number"
+
+                            android:background="@drawable/rounded"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/accountant"
+                            android:src="@drawable/ic_info"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/c_electri"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Electricians"/>
+                        <EditText
+
+                            android:textSize="15dp"
+                            android:maxLength="2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/electrician_txt"
+                            android:paddingLeft="5dp"
+                            android:inputType="number"
+
+                            android:background="@drawable/rounded"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/electrician"
+                            android:src="@drawable/ic_info"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/c_waste"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Waste Pickers"/>
+                        <EditText
+
+                            android:textSize="15dp"
+                            android:layout_width="30dp"
+                            android:maxLength="2"
+                            android:layout_height="30dp"
+                            android:paddingLeft="5dp"
+                            android:id="@+id/waste_picker_txt"
+                            android:inputType="number"
+
+                            android:background="@drawable/rounded"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/waste_picker"
+                            android:src="@drawable/ic_info"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/c_helper"
+                            />
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            android:text="Helpers"/>
+                        <EditText
+                            android:paddingLeft="5dp"
+                            android:inputType="number"
+                            android:textSize="15dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/helper_txt"
+                            android:maxLength="2"
+
+
+                            android:background="@drawable/rounded"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/helper"
+                            android:src="@drawable/ic_info"/>
+
+
+                    </LinearLayout>
+
+
+
+
+
+
 
                 </LinearLayout>
 
@@ -393,7 +780,6 @@
                     android:onClick="update"
                     android:layout_gravity="center"
                     android:text="update"
-
                     android:id="@+id/add_event"/>
 
 

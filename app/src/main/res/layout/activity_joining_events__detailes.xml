@@ -393,6 +393,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Give Rating"
+                    android:textSize="15dp"
+                    android:layout_marginTop="20dp"
                     android:clickable="true"
                     android:onClick="rating_dialog"/>
 

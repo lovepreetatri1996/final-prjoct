@@ -41,18 +41,57 @@ public class Events_Detailes extends AppCompatActivity {
     private CheckBox c_doctor,c_sweeper,c_transportation,c_video,c_clockroom,c_infodesk,c_accountant,c_electric,c_network,c_waste,c_helper;
 
     private ImageView doctor,sweeper,transprotation,video,clockroom,infodesk,accountant,electri,network,waste,helper;
-Dialog dialogshow;
+   Dialog dialogshow;
 
-private AppCompatRatingBar ratingBar ;
+   private AppCompatRatingBar ratingBar ;
 
-private TextView total_rating ;
+   private TextView total_rating ;
 
+   public Button join_btn ;
+
+    EditText doctor_et;
+
+    EditText sweeper_et;
+
+    EditText account_et;
+
+    EditText electric_et;
+
+    EditText network_et;
+
+    EditText helper_et;
+
+    EditText waste_et;
+
+    EditText transport_et;
+
+    EditText infodesk_et;
+
+    EditText clock_et;
+
+    EditText video_et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events__detailes);
 
+
+
+         doctor_et=findViewById(R.id.doctor_txt);
+         sweeper_et=findViewById(R.id.sweeper_txt);
+         account_et=findViewById(R.id.accountant_txt);
+        electric_et=findViewById(R.id.electrician_txt);
+         network_et=findViewById(R.id.network_txt);
+         helper_et=findViewById(R.id.helper_txt);
+        waste_et=findViewById(R.id.waste_picker_txt);
+          transport_et=findViewById(R.id.transportation_txt);
+          infodesk_et=findViewById(R.id.info_txt);
+          clock_et=findViewById(R.id.clock_txt);
+          video_et=findViewById(R.id.videographer_txt);
+
+
+        join_btn = findViewById(R.id.join_btn);
 
         ratingBar = findViewById(R.id.rating_bar);
 
@@ -342,6 +381,8 @@ private TextView total_rating ;
                                }
                            }
                        }
+
+                        join_btn.setVisibility(View.GONE);
                     }
 
                 }
@@ -471,6 +512,7 @@ private TextView total_rating ;
 
                                 }
                             }
+
                         }
 
                     }
@@ -654,11 +696,31 @@ private TextView total_rating ;
         {
 
            role = role+"doctor,";
+
+           String num_doctor = doctor_et.getText().toString();
+
+           if(num_doctor.split("/")[0].equals(num_doctor.split("/")[1]))
+           {
+               Toast.makeText(Events_Detailes.this , "you cant join as doctor" , Toast.LENGTH_SHORT).show();
+
+               return;
+           }
+
+
         }
 
         if(c_sweeper.isChecked())
         {
             role = role+"sweeper,";
+
+            String num_sweeper = sweeper_et.getText().toString();
+
+            if(num_sweeper.split("/")[0].equals(num_sweeper.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as sweeper" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
 
         }
 
@@ -667,17 +729,45 @@ private TextView total_rating ;
         {
             role = role+"transportation,";
 
+            String num_transportation = transport_et.getText().toString();
+
+            if(num_transportation.split("/")[0].equals(num_transportation.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as transporter" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
+
         }
 
         if(c_video.isChecked())
         {
            role=role+"video,";
 
+            String num_video = video_et.getText().toString();
+
+            if(num_video.split("/")[0].equals(num_video.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as video grapher" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
+
         }
 
         if(c_clockroom.isChecked())
         {
             role=role+"clock room,";
+
+            String num_clock = clock_et.getText().toString();
+
+            if(num_clock.split("/")[0].equals(num_clock.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as clock room" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
+
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -693,6 +783,15 @@ private TextView total_rating ;
         if(c_infodesk.isChecked())
         {
             role = role+ "info desk,";
+
+            String num_info_desk = sweeper_et.getText().toString();
+
+            if(num_info_desk.split("/")[0].equals(num_info_desk.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as info desk" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -708,6 +807,16 @@ private TextView total_rating ;
         if(c_network.isChecked())
         {
             role=role+"network,";
+
+            String num_network = network_et.getText().toString();
+
+            if(num_network.split("/")[0].equals(num_network.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as network operator" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
+
           /*  try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -722,6 +831,15 @@ private TextView total_rating ;
 
         if(c_accountant.isChecked())
         {
+            String num_accountant = account_et.getText().toString();
+
+            if(num_accountant.split("/")[0].equals(num_accountant.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as accountant" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
+
             role=role+"account,";
            /* try {
                 JSONObject jsonObject = new JSONObject();
@@ -739,6 +857,16 @@ private TextView total_rating ;
         if(c_electric.isChecked())
         {
             role=role+"electric,";
+
+            String num_electrician = electric_et.getText().toString();
+
+            if(num_electrician.split("/")[0].equals(num_electrician.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as electrician" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
+
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -756,6 +884,16 @@ private TextView total_rating ;
         if(c_waste.isChecked())
         {
             role=role+"waste,";
+
+            String num_waste = waste_et.getText().toString();
+
+            if(num_waste.split("/")[0].equals(num_waste.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as waste collector" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
+
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -772,6 +910,16 @@ private TextView total_rating ;
 
         {
             role=role+"helper,";
+
+            String num_helper = helper_et.getText().toString();
+
+            if(num_helper.split("/")[0].equals(num_helper.split("/")[1]))
+            {
+                Toast.makeText(Events_Detailes.this , "you cant join as helper" , Toast.LENGTH_SHORT).show();
+
+                return;
+            }
+
            /* try {
                 JSONObject jsonObject = new JSONObject();
 
@@ -796,6 +944,8 @@ private TextView total_rating ;
             Toast.makeText(Events_Detailes.this , "you can only select two roles" , Toast.LENGTH_SHORT).show();
             return;
         }
+
+
 
 
         FirebaseAuth auth = FirebaseAuth.getInstance();

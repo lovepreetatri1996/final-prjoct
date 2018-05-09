@@ -76,10 +76,11 @@ public class FirstPage extends AppCompatActivity {
 
                 if(task.isSuccessful())
                 {
-                    Intent i = new Intent(FirstPage.this , Homes.class);
-
+                    Intent i=new Intent(FirstPage.this,Homes.class);
                     startActivity(i);
                     finish();
+
+
                 }
 
                 else {
@@ -88,7 +89,13 @@ public class FirstPage extends AppCompatActivity {
                 }
             }
         });
+
     }
+
+
+
+
+
 
     public void frogot_password(View view) {
         Intent i = new Intent(FirstPage.this , Forgot_password.class);

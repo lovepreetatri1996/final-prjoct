@@ -484,6 +484,21 @@ public class Add_Event_Detailes extends Fragment {
                        clock.setText("");
                            video.setText("");
 
+                           c_doctor.setChecked(false);
+                           c_sweeper.setChecked(false);
+                           c_accountant.setChecked(false);
+                           c_electric.setChecked(false);
+                           c_network.setChecked(false);
+                           c_helper.setChecked(false);
+                           c_waste.setChecked(false);
+                           c_clockroom.setChecked(false);
+                           c_transportation.setChecked(false);
+                           c_infodesk.setChecked(false);
+                           c_video.setChecked(false);
+
+
+
+
 
 
 
@@ -502,6 +517,7 @@ public class Add_Event_Detailes extends Fragment {
                       }
                   }
               };
+
 
 
                FirebaseAuth auth =  FirebaseAuth.getInstance();

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,11 +22,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Calendar;
 
 import static com.example.asus.mainproject.fragments.Add_Event_Detailes.place_s;
 
 public class SingleCellEdit extends AppCompatActivity {
+
+    private CheckBox c_doctor,c_sweeper,c_transportation,c_video,c_clockroom,c_infodesk,c_accountant,c_electric,c_network,c_waste,c_helper;
+
+    private ImageView clock,doctor,sweeper,transprotation,video,clockroom,infodesk,accountant,electri,network,waste,helper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +43,23 @@ public class SingleCellEdit extends AppCompatActivity {
         setContentView(R.layout.activity_single_cell_edit);
 
         ImageView cal = findViewById(R.id.calandar);
-        
-        
-      final EditText event_name=findViewById(R.id.event_name);
+
+        c_doctor=findViewById(R.id.c_doctor);
+        c_sweeper=findViewById(R.id.c_sweeper);
+        c_accountant=findViewById(R.id.c_account);
+        c_clockroom=findViewById(R.id.c_clock_room);
+        c_helper=findViewById(R.id.c_helper);
+        c_waste=findViewById(R.id.c_waste);
+        c_electric=findViewById(R.id.c_electri);
+        c_infodesk=findViewById(R.id.c_info);
+        c_network=findViewById(R.id.c_network);
+        c_video=findViewById(R.id.c_video);
+        c_transportation= findViewById(R.id.c_transportation);
+
+
+
+
+        final EditText event_name=findViewById(R.id.event_name);
     final EditText event_date=findViewById(R.id.dateofbrith);
     final EditText event_time=findViewById(R.id.select_time);
     EditText event_description=findViewById(R.id.event_description);
@@ -44,13 +68,26 @@ public class SingleCellEdit extends AppCompatActivity {
     EditText event_activity_three=findViewById(R.id.activity_three);
     EditText event_activity_four=findViewById(R.id.activity_four);
     EditText event_activity_five=findViewById(R.id.activity_five);
-    EditText event_male=findViewById(R.id.event_male);
-    EditText event_female=findViewById(R.id.event_female);
+
     TextView place_txt = findViewById(R.id.place_txt);
 
 
+        final EditText doctor=findViewById(R.id.doctor_txt);
+        final EditText sweeper=findViewById(R.id.sweeper_txt);
+        final EditText account=findViewById(R.id.accountant_txt);
+        final EditText electric=findViewById(R.id.electrician_txt);
+        final EditText network=findViewById(R.id.network_txt);
+        final EditText helper=findViewById(R.id.helper_txt);
+        final EditText waste=findViewById(R.id.waste_picker_txt);
+        final EditText transport=findViewById(R.id.transportation_txt);
+        final EditText infodesk=findViewById(R.id.info_txt);
+        final EditText clock_et=findViewById(R.id.clock_txt);
+        final EditText video=findViewById(R.id.videographer_txt);
 
-    String name = getIntent().getStringExtra("name");
+
+
+
+        String name = getIntent().getStringExtra("name");
     String date = getIntent().getStringExtra("date");
     String location= getIntent().getStringExtra("location");
     String time = getIntent().getStringExtra("time");
@@ -60,8 +97,87 @@ public class SingleCellEdit extends AppCompatActivity {
     String activitythree= getIntent().getStringExtra("activitythree");
     String activityfour= getIntent().getStringExtra("activityfour");
     String activityfive= getIntent().getStringExtra("activityfive");
-    String male= getIntent().getStringExtra("event_male");
-    String female= getIntent().getStringExtra("event_female");
+
+    String role = getIntent().getStringExtra("member_required");
+
+    System.out.println("role is ****************************** "+role);
+
+        try {
+            JSONArray jsonArray_roles = new JSONArray(role);
+
+            for(int i = 0 ; i < jsonArray_roles.length() ; i ++)
+            {
+                JSONObject jsonObject = jsonArray_roles.getJSONObject(i);
+
+                String rr = jsonObject.getString("name");
+
+                String member_required = jsonObject.getString("number");
+
+                if(rr.toLowerCase().contains("doctor"))
+                {
+                    c_doctor.setChecked(true);
+                    doctor.setText(member_required);
+                }
+
+                if(rr.toLowerCase().contains("sweeper"))
+                {
+                    c_sweeper.setChecked(true);
+                    sweeper.setText(member_required);
+                }
+
+                if(rr.toLowerCase().contains("info desk"))
+                {
+                    c_infodesk.setChecked(true);
+                    infodesk.setText(member_required);
+                }
+                if (rr.toLowerCase().contains("video ")) {
+                    c_video.setChecked(true);
+                    video.setText(member_required);
+                }
+                if (rr.toLowerCase().contains("transportation")) {
+
+                    c_transportation.setChecked(true);
+                    transport.setText(member_required);
+                }
+                if (rr.toLowerCase().contains("clock ")) {
+
+                    c_clockroom.setChecked(true);
+
+                    clock_et.setText(member_required);
+                }
+                if (rr.toLowerCase().contains("network ")) {
+
+                    c_network.setChecked(true);
+
+                    network.setText(member_required);
+
+                }
+                if (rr.toLowerCase().contains("helper")) {
+
+                    c_helper.setChecked(true);
+
+                    helper.setText(member_required);
+                }
+                if (rr.toLowerCase().contains("waste ")) {
+
+                    c_waste.setChecked(true);
+                    waste.setText(member_required);
+                }
+                if (rr.toLowerCase().contains("account")) {
+
+                    c_accountant.setChecked(true);
+                    account.setText(member_required);
+                }
+                if (rr.toLowerCase().contains("electric")) {
+
+                    c_electric.setChecked(true);
+                    electric.setText(member_required);
+                }
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         event_name.setText(name);
         event_date.setText(date);
@@ -72,8 +188,8 @@ public class SingleCellEdit extends AppCompatActivity {
         event_activity_three.setText(activitythree);
         event_activity_four.setText(activityfour);
         event_activity_five.setText(activityfive);
-        event_male.setText(male);
-        event_female.setText(female);
+
+
 
         place_txt.setText(location);
 
@@ -137,6 +253,9 @@ public class SingleCellEdit extends AppCompatActivity {
 }
 
     public void update(View view) {
+
+        JSONArray jsonArray = new JSONArray();
+
         final EditText event_name=findViewById(R.id.event_name);
         final EditText event_date=findViewById(R.id.dateofbrith);
         final EditText event_time=findViewById(R.id.select_time);
@@ -146,8 +265,7 @@ public class SingleCellEdit extends AppCompatActivity {
         final EditText event_activity_three=findViewById(R.id.activity_three);
         final EditText event_activity_four=findViewById(R.id.activity_four);
         final EditText event_activity_five=findViewById(R.id.activity_five);
-        final EditText event_male=findViewById(R.id.event_male);
-        final EditText event_female=findViewById(R.id.event_female);
+
 
 
         final String e_name=event_name.getText().toString();
@@ -159,8 +277,7 @@ public class SingleCellEdit extends AppCompatActivity {
         final String e_activity_three=event_activity_three.getText().toString();
         final String e_activity_four=event_activity_four.getText().toString();
         final String e_activity_five=event_activity_five.getText().toString();
-        final String e_male=event_male.getText().toString();
-        final String e_female=event_female.getText().toString();
+
 
 
         if(e_name.length() <=4 )
@@ -212,19 +329,193 @@ public class SingleCellEdit extends AppCompatActivity {
             return;
         }
 
-        if(e_male.length() >=15)
+        final EditText doctor=findViewById(R.id.doctor_txt);
+        final EditText sweeper=findViewById(R.id.sweeper_txt);
+        final EditText account=findViewById(R.id.accountant_txt);
+        final EditText electric=findViewById(R.id.electrician_txt);
+        final EditText network=findViewById(R.id.network_txt);
+        final EditText helper=findViewById(R.id.helper_txt);
+        final EditText waste=findViewById(R.id.waste_picker_txt);
+        final EditText transport=findViewById(R.id.transportation_txt);
+        final EditText infodesk=findViewById(R.id.info_txt);
+        final EditText clock=findViewById(R.id.clock_txt);
+        final EditText video=findViewById(R.id.videographer_txt);
+
+
+
+        final String e_doctor=doctor.getText().toString();
+        final String e_sweeper=sweeper.getText().toString();
+        final String e_transportation=transport.getText().toString();
+        final String e_video=video.getText().toString();
+        final String e_clock=clock.getText().toString();
+        final String e_infodesk=infodesk.getText().toString();
+        final String e_network=network.getText().toString();
+        final String e_account=account.getText().toString();
+        final String e_electri=electric.getText().toString();
+        final String e_waste=waste.getText().toString();
+        final String e_helper=helper.getText().toString();
+
+
+        if(c_doctor.isChecked())
         {
-            event_male.setError("enter must 15 number of male");
-            return;
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "doctor");
+                jsonObject.put("number" , e_doctor);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-        if(e_female.length() >=10)
+        if(c_sweeper.isChecked())
         {
-            event_female.setError("enter must 10 number of female");
-            return;
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "sweeper");
+                jsonObject.put("number" , e_sweeper);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-        EventData data = new EventData(e_name, e_date, e_time, e_description, e_activity_one, e_activity_two, e_activity_three, e_activity_four, e_activity_five, e_male, e_female , place_s);
+
+        if(c_transportation.isChecked())
+        {
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "transportation");
+                jsonObject.put("number" , e_transportation);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(c_video.isChecked())
+        {
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "video");
+                jsonObject.put("number" , e_video);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(c_clockroom.isChecked())
+        {
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "clock");
+                jsonObject.put("number" , e_clock);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(c_infodesk.isChecked())
+        {
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "info desk");
+                jsonObject.put("number" , e_infodesk);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(c_network.isChecked())
+        {
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "network");
+                jsonObject.put("number" , e_network);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(c_accountant.isChecked())
+        {
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "accountant");
+                jsonObject.put("number" , e_account);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        if(c_electric.isChecked())
+        {
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "Electric");
+                jsonObject.put("number" , e_electri);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+        if(c_waste.isChecked())
+        {
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "waste");
+                jsonObject.put("number" , e_waste);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(c_helper.isChecked())
+        {
+            try {
+                JSONObject jsonObject = new JSONObject();
+
+                jsonObject.put("name" , "helper");
+                jsonObject.put("number" , e_helper);
+                jsonArray.put(jsonObject);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        EventData data = new EventData(e_name, e_date, e_time, e_description, e_activity_one, e_activity_two, e_activity_three, e_activity_four, e_activity_five , place_s , jsonArray.toString());
 
         OnCompleteListener listener = new OnCompleteListener() {
             @Override

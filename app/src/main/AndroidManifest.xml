@@ -42,8 +42,8 @@
         <activity android:name=".FilterEventActivity" />
         <activity android:name=".Odey_appnay_events_nu_keenaya_nay_join_keeta" />
         <activity android:name=".MyEventSingleActivity" />
-
-        <activity android:name=".Joining_Events_Detailes"/>
+        <activity android:name=".Joining_Events_Detailes" />
+        <activity android:name=".Slider_viewer_bablu"></activity>
     </application>
 
 </manifest>

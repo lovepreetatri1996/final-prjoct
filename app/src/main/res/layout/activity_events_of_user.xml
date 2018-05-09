@@ -27,7 +27,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
 
-                android:text="User's Events:-"
+                android:text="My Events:-"
                 android:textSize="30dp"
 
 

@@ -109,7 +109,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
 
                             <EditText
                                 android:id="@+id/dateofbrith"
-                                android:textSize="20dp"
+                                android:textSize="15dp"
                                 android:layout_width="150dp"
                                 android:layout_height="30dp"
 
@@ -154,6 +154,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textSize="15dp"
                     android:minHeight="15dp"
                     />
                 <LinearLayout
@@ -180,7 +181,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                             android:layout_width="150dp"
                             android:layout_height="30dp"
                             android:layout_marginTop="5dp"
-                            android:textSize="20dp"
+                            android:textSize="15dp"
                             android:focusableInTouchMode="false"
                             android:background="@drawable/rounded"
                             android:paddingLeft="5dp" />
@@ -219,6 +220,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                     android:paddingTop="4dp"
                     android:textSize="15dp"
                     android:layout_marginTop="5dp"
+                    android:maxLines="3"
                     android:background="@drawable/rounded"
                     android:paddingLeft="5dp" />
                 <TextView
@@ -317,18 +319,13 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                     </LinearLayout>
                 </android.support.v4.widget.NestedScrollView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="Members required for event:- "
-                    android:textSize="15dp" />
 
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="wrap_content"
@@ -362,6 +359,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                             android:layout_height="30dp"
                             android:id="@+id/doctor_txt"
                             android:paddingLeft="5dp"
+                            android:maxLength="2"
                             android:inputType="number"
 
                             android:background="@drawable/rounded"
@@ -396,6 +394,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                         <EditText
 
                             android:textSize="15dp"
+                            android:maxLength="2"
                             android:paddingLeft="5dp"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
@@ -434,6 +433,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                         <EditText
 
                             android:textSize="15dp"
+                            android:maxLength="2"
                             android:paddingLeft="5dp"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
@@ -473,6 +473,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
 
                             android:textSize="15dp"
                             android:layout_width="30dp"
+                            android:maxLength="2"
                             android:paddingLeft="5dp"
                             android:id="@+id/videographer_txt"
                             android:layout_height="30dp"
@@ -515,6 +516,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                             android:layout_height="30dp"
                             android:id="@+id/clock_txt"
                             android:inputType="number"
+                            android:maxLength="2"
 
                             android:background="@drawable/rounded"
                             />
@@ -551,6 +553,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                             android:paddingLeft="5dp"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
+                            android:maxLength="2"
                             android:id="@+id/info_txt"
                             android:inputType="number"
 
@@ -587,6 +590,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
 
                             android:textSize="15dp"
                             android:layout_width="30dp"
+                            android:maxLength="2"
                             android:paddingLeft="5dp"
                             android:layout_height="30dp"
                             android:id="@+id/network_txt"
@@ -627,6 +631,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:id="@+id/accountant_txt"
+                            android:maxLength="2"
                             android:paddingLeft="5dp"
                             android:inputType="number"
 
@@ -662,6 +667,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                         <EditText
 
                             android:textSize="15dp"
+                            android:maxLength="2"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:id="@+id/electrician_txt"
@@ -701,6 +707,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
 
                             android:textSize="15dp"
                             android:layout_width="30dp"
+                            android:maxLength="2"
                             android:layout_height="30dp"
                             android:paddingLeft="5dp"
                             android:id="@+id/waste_picker_txt"
@@ -742,6 +749,7 @@ android:layout_margin="15dp"        android:layout_below="@+id/upper"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:id="@+id/helper_txt"
+                            android:maxLength="2"
 
 
                             android:background="@drawable/rounded"
