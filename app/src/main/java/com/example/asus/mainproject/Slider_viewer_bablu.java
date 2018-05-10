@@ -9,7 +9,6 @@ import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Slider_viewer_bablu extends AppCompatActivity {
-    public class Slideview extends AppCompatActivity {
         private ViewPager viewPager;
         private SlideAdapter myadapter;
 
@@ -27,5 +26,5 @@ public class Slider_viewer_bablu extends AppCompatActivity {
             Intent i=new Intent(Slider_viewer_bablu.this,Homes.class);
             startActivity(i);
         }
-    }
+
 }

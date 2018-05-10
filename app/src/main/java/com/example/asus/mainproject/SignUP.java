@@ -68,8 +68,8 @@ import static com.example.asus.mainproject.editprofile.rotate;
 
 public  class SignUP extends AppCompatActivity {
     private static final int GALLERY_REQUEST = 2000 ;
-    TextView show_password;
-    EditText password;
+    TextView show_password,show_password_crfm;
+    EditText password, confirmpassword;
     ImageView btn;
     Button register;
     EditText editText_et;
@@ -116,13 +116,55 @@ public  class SignUP extends AppCompatActivity {
 
         circleImageView = findViewById(R.id.imageviewc);
 
+         confirmpassword =findViewById(R.id.confirmpassword);
+
+        show_password_crfm=findViewById(R.id.show_password_confrm);
+        show_password_crfm.setVisibility(View.GONE);
+
+
+        confirmpassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (password.getText().length()>0){
+                    show_password_crfm.setVisibility(View.VISIBLE);
+                }
+                else {
+                    show_password_crfm.setVisibility(View.GONE);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        show_password_crfm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (show_password_crfm.getText()=="Show"){
+                    show_password_crfm.setText("Hide");
+                    confirmpassword.setTransformationMethod(null);
+                    confirmpassword.setSelection(confirmpassword.length());
+                }
+                else{
+                    show_password_crfm.setText("Show");
+                    confirmpassword.setTransformationMethod(new PasswordTransformationMethod());
+                    confirmpassword.setSelection(confirmpassword.length());
+                }
+            }
+        });
+
+
+
         password=findViewById(R.id.password);
-
-
         show_password=findViewById(R.id.show_password);
         show_password.setVisibility(View.GONE);
-
-
 
         password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -204,11 +246,21 @@ public  class SignUP extends AppCompatActivity {
 
         RadioButton selected_radio_btn = findViewById(gender_radio_group.getCheckedRadioButtonId());
 
-        final String gender = selected_radio_btn.getText().toString();
+         fullname.clearFocus();
+         confirmpassword.clearFocus();
+         mobilenumber.clearFocus();
+         dateofbrith.clearFocus();
+         email.clearFocus();
+         password.clearFocus();
+         city.clearFocus();
+         state.clearFocus();
+         address.clearFocus();
 
 
         if(fn.length() <=4 )
         {
+            fullname.requestFocus();
+
             fullname.setError("name must be of minimum 4 characters");
             return;
         }
@@ -216,7 +268,9 @@ public  class SignUP extends AppCompatActivity {
 
         if(mn.length() < 10  )
         {
-           mobilenumber.setError("phone number  not valids");
+            mobilenumber.requestFocus();
+
+            mobilenumber.setError("phone number  not valids");
 
             return;
 
@@ -224,23 +278,32 @@ public  class SignUP extends AppCompatActivity {
 
         if(dfb.length() == 0 )
         {
+            dateofbrith.requestFocus();
+
+
             dateofbrith.setError( "please enter date of birth" );
             return;
         }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(e).matches() )
         {
+           email.requestFocus();
+
             email.setError( "please enter email" );
 
             return;
         }
         if(p.length() <=8)
         {
+            password.requestFocus();
+
             password.setError( "password should contain atleast 8 characters" );
            return;
         }
         if(c.length() ==0 )
         {
+            city.requestFocus();
+
             city.setError( "please enter city" );
 
 
@@ -248,13 +311,17 @@ public  class SignUP extends AppCompatActivity {
         }
         if(s.length() ==0 )
         {
-           state.setError( "please enter  state" );
+           state.requestFocus();
+
+            state.setError( "please enter  state" );
 
             return;
         }
         if(ad.length() ==0 )
         {
-           address.setError( "please enter  your address" );
+            address.requestFocus();
+
+            address.setError( "please enter  your address" );
 
             return;
         }
@@ -270,10 +337,19 @@ public  class SignUP extends AppCompatActivity {
         if( ! p.equals(cp))
 
         {
+            confirmpassword.requestFocus();
+
             confirmpassword.setError( "password and confirm password do  not match" );
 
             return;
         }
+
+        if(gender_radio_group.getCheckedRadioButtonId() == -1)
+        {
+            return;
+        }
+
+        final String gender = selected_radio_btn.getText().toString();
 
         Date cal = Calendar.getInstance().getTime();
         System.out.println("Current time => " + cal);

@@ -1,7 +1,9 @@
 package com.example.asus.mainproject;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
@@ -13,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import hotchemi.android.rate.AppRate;
 
 public class MainActivity extends AppCompatActivity {
+    private boolean isUserClickedBackButton=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,4 +54,6 @@ public class MainActivity extends AppCompatActivity {
         };
         h.postDelayed(r, 4000);
     }
+
+
 }

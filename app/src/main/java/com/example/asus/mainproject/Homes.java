@@ -1,10 +1,12 @@
 package com.example.asus.mainproject;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -90,6 +92,30 @@ public class Homes extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        final AlertDialog.Builder builder=new AlertDialog.Builder(Homes.this);
+        builder.setMessage("Are you sure want to EXIT????");
+
+
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+
+            }
+        });
+        builder.setCancelable(true);
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alertDialog= builder.create();
+        alertDialog.show();
+    }
 
 
 }

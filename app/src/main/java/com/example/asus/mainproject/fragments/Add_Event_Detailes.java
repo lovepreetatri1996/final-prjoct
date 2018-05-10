@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,6 +74,8 @@ public class Add_Event_Detailes extends Fragment {
 
    public static TextView place_txt ;
 
+   private NestedScrollView scrollView ;
+
     public Add_Event_Detailes() {
         // Required empty public constructor
     }
@@ -92,6 +95,9 @@ public class Add_Event_Detailes extends Fragment {
         } catch (InflateException e) {
         /* map is already there, just return view as it is */
         }
+
+
+        scrollView = view.findViewById(R.id.scroll_view);
 
         place_txt = view.findViewById(R.id.place_txt);
 
@@ -124,6 +130,7 @@ public class Add_Event_Detailes extends Fragment {
                  date_et.setText(String.valueOf(i2) + " /" + String.valueOf(i1 + 1)+"/"+String.valueOf(i));
 
 
+                 date_et.setError(null);
                     }
                 }, c.get(Calendar.YEAR) , c.get(Calendar.MONTH) , c.get(Calendar.DAY_OF_WEEK) );
 
@@ -158,6 +165,8 @@ public class Add_Event_Detailes extends Fragment {
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
 
                         time_et.setText(String.valueOf(i)+":"+String.valueOf(i1));
+
+                        time_et.setError(null);
 
 
                     }
@@ -399,54 +408,84 @@ public class Add_Event_Detailes extends Fragment {
                 final String e_activity_four=event_activity_four.getText().toString();
                 final String e_activity_five=event_activity_five.getText().toString();
 
+                event_name.clearFocus();
+                event_date.clearFocus();
+                event_time.clearFocus();
+                event_description.clearFocus();
+                event_activity_one.clearFocus();
+                event_activity_two.clearFocus();
+                event_activity_three.clearFocus();
+                event_activity_four.clearFocus();
+                event_activity_five.clearFocus();
 
 
-                if(e_name.length() <=4 )
+                if(e_name.length() < 4 )
                 {
                     event_name.setError("name must be of minimum 4 characters");
+
+                    event_name.requestFocus();
                     return;
                 }
                 if(e_date.length() == 0 )
                 {
                     event_date.setError( "please enter date of the event" );
+
+                    event_date.requestFocus();
+
                     return;
                 }
                 if(e_time.length() == 0 )
                 {
                     event_time.setError( "please enter time of the event" );
+
+                    event_time.requestFocus();
+
                     return;
                 }
 
                 if(e_description.length() <=20 )
                 {
                     event_description.setError("name must be of minimum 40 characters");
+                    event_description.requestFocus();
+
                     return;
                 }
 
                 if(e_activity_one.length() <=10 )
                 {
                     event_activity_one.setError("name must be of minimum 30 characters");
+                    event_activity_one.requestFocus();
+
+
                     return;
                 }
 
                 if(e_activity_two.length() <=10 )
                 {
                     event_activity_two.setError("name must be of minimum 30 characters");
+                    event_activity_two.requestFocus();
+
                     return;
                 }
                 if(e_activity_three.length() <=10 )
                 {
                     event_activity_three.setError("name must be of minimum 30 characters");
+
+                    event_activity_three.requestFocus();
+
                     return;
                 }
                 if(e_activity_four.length() <=10 )
                 {
                     event_activity_four.setError("name must be of minimum 30 characters");
+                    event_activity_four.requestFocus();
+
                     return;
                 }
                 if(e_activity_five.length() <=10 )
                 {
                     event_activity_five.setError("name must be of minimum 30 characters");
+                    event_activity_five.requestFocus();
                     return;
                 }
 
@@ -495,21 +534,6 @@ public class Add_Event_Detailes extends Fragment {
                            c_transportation.setChecked(false);
                            c_infodesk.setChecked(false);
                            c_video.setChecked(false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

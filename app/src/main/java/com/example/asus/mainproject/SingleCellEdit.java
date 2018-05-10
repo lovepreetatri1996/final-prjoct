@@ -2,6 +2,7 @@ package com.example.asus.mainproject;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +37,11 @@ public class SingleCellEdit extends AppCompatActivity {
 
     private ImageView clock,doctor,sweeper,transprotation,video,clockroom,infodesk,accountant,electri,network,waste,helper;
 
+    public static TextView place_txt ;
+
+    public  static   String place_s ;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,17 @@ public class SingleCellEdit extends AppCompatActivity {
         c_video=findViewById(R.id.c_video);
         c_transportation= findViewById(R.id.c_transportation);
 
+        place_txt = findViewById(R.id.place_txt);
+
+
+        place_txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivityForResult( new Intent(SingleCellEdit.this , PlacePickActivity.class) , 100);
+            }
+        });
+
 
 
 
@@ -69,7 +86,6 @@ public class SingleCellEdit extends AppCompatActivity {
     EditText event_activity_four=findViewById(R.id.activity_four);
     EditText event_activity_five=findViewById(R.id.activity_five);
 
-    TextView place_txt = findViewById(R.id.place_txt);
 
 
         final EditText doctor=findViewById(R.id.doctor_txt);
@@ -517,7 +533,8 @@ public class SingleCellEdit extends AppCompatActivity {
 
         EventData data = new EventData(e_name, e_date, e_time, e_description, e_activity_one, e_activity_two, e_activity_three, e_activity_four, e_activity_five , place_s , jsonArray.toString());
 
-        OnCompleteListener listener = new OnCompleteListener() {
+        OnCompleteListener listener = new OnCompleteListener()
+        {
             @Override
             public void onComplete(@NonNull Task task) {
 
@@ -541,6 +558,19 @@ public class SingleCellEdit extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 100 && resultCode == 200)
+        {
+            place_s =   data.getStringExtra("place");
+
+            place_txt.setText(place_s);
+
+        }
     }
 
 
