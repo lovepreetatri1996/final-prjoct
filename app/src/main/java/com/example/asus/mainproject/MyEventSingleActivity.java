@@ -1,15 +1,26 @@
 package com.example.asus.mainproject;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TextView;
+
+import com.example.asus.mainproject.dataModels.EventData;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MyEventSingleActivity extends AppCompatActivity {
+    Dialog dialogshow;
+    Button yes,no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,4 +91,53 @@ public class MyEventSingleActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public void back_back(View view) {
+        finish();
+    }
+    public void delete_event(View view){
+        mydelete();
+    }
+    public void mydelete(){
+        dialogshow=new Dialog(MyEventSingleActivity.this , R.style.Theme_Dialog);
+        dialogshow.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogshow.setContentView(R.layout.delete_event_popupmessage);
+
+        dialogshow.setTitle("Are you sure,want to logout");
+        yes=dialogshow.findViewById(R.id.yes);
+        no=dialogshow.findViewById(R.id.no);
+
+        yes.setEnabled(true);
+        no.setEnabled(true);
+
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth auth =  FirebaseAuth.getInstance();
+
+                String email = auth.getCurrentUser().getEmail().replace("." , "");
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
+                database.getReference().child("event").child(email).child(getIntent().getStringExtra("time")).setValue(null);
+
+
+            }
+        });
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogshow.cancel();
+
+            }
+        });
+
+
+        dialogshow.show();
+
+    }
+
+
 }

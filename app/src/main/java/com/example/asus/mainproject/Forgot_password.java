@@ -51,7 +51,7 @@ public class Forgot_password extends AppCompatActivity {
                 });
         Toast.makeText(Forgot_password.this, "Link has been sent to your registered email , to change your password ",
                 Toast.LENGTH_LONG).show();
-        finish();
+                finish();
 
 
     }

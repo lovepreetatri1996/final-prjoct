@@ -88,9 +88,9 @@ public class Events_of_user extends AppCompatActivity {
 
     }
 
-    public void back_arrow(View view) {
-        finish();
-    }
+
+
+
 
     public class view_holder extends RecyclerView.ViewHolder
     {
@@ -164,6 +164,9 @@ public class Events_of_user extends AppCompatActivity {
         public int getItemCount() {
             return list.size();
         }
+    }
+    public void finsh_back(View view) {
+        finish();
     }
 }
 

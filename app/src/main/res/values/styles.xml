@@ -8,14 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowFullscreen"/>
         <item name="colorButtonNormal">#42fc0e</item>
-        <item name="colorControlActivated">#759bae</item>
-        <item name="colorControlHighlight">#16ea59</item>
+        <item name="colorControlActivated">#09090a</item>
+        <item name="colorControlHighlight">#59ec87</item>
 
     </style>
 
     <style name="Theme_Dialog" parent="android:Theme.Holo.Dialog">
         <item name="android:windowMinWidthMajor">90%</item>
         <item name="android:windowMinWidthMinor">90%</item>
+
+
     </style>
 
 </resources>

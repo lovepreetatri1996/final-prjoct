@@ -558,6 +558,7 @@ public class Add_Event_Detailes extends Fragment {
                 long current_time_stamp = System.currentTimeMillis();
 
                 database.getReference().child("event").child(email).child(String.valueOf(current_time_stamp)).setValue(data).addOnCompleteListener(listener);
+                Toast.makeText(getContext(),"event successfully added",Toast.LENGTH_LONG).show();
 
 
 

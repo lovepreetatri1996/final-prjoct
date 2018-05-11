@@ -255,13 +255,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 1"
-                            android:inputType="textCapWords"
+                            android:hint=" Activity 1"
+
                             android:id="@+id/activity_one"
-                            android:maxLines="1"
+
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                         />
                         </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -280,12 +280,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 2"
-                            android:inputType="textCapWords"
-                            android:maxLines="1"
+                            android:hint=" Activity 2"
+
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                             />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -305,12 +304,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 3"
-                            android:inputType="textCapWords"
-                            android:maxLines="1"
+                            android:hint=" Activity 3"
+
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                             />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -331,12 +329,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 4"
-                            android:inputType="textCapWords"
-                            android:maxLines="1"
+                            android:hint=" Activity 4"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                             />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -355,12 +351,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 5"
-                            android:inputType="textCapWords"
-                            android:maxLines="1"
+                            android:hint=" Activity 5"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                             />
                     </LinearLayout>
 
 

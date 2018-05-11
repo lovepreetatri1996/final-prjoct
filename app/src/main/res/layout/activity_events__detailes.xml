@@ -55,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="left"
+                android:background="#ffecec"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -67,6 +68,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+
                         android:orientation="vertical"
                         android:padding="5dp">
 
@@ -250,13 +252,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 1"
-                            android:inputType="textCapWords"
+                            android:hint=" Activity 1"
+
                             android:id="@+id/activity_one"
-                            android:maxLines="1"
+
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                            />
                         </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -275,12 +277,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 2"
+                            android:hint=" Activity 2"
                             android:inputType="textCapWords"
-                            android:maxLines="1"
+
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                             />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -300,12 +302,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 3"
-                            android:inputType="textCapWords"
-                            android:maxLines="1"
+                            android:hint=" Activity 3"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                             />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -322,16 +322,13 @@
 
                         <TextView
                             android:id="@+id/activity_four"
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 4"
-                            android:inputType="textCapWords"
-                            android:maxLines="1"
+                            android:hint=" Activity 4"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                             />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -350,12 +347,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Enter Activity 5"
-                            android:inputType="textCapWords"
-                            android:maxLines="1"
+                            android:hint=" Activity 5"
+
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="15dp" />
+                            />
                     </LinearLayout>
 
 

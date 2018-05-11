@@ -93,6 +93,7 @@ public class Joining_Events_Detailes extends AppCompatActivity {
 
     public void back_back(View view) 
     {
+
         finish();
     }
 
