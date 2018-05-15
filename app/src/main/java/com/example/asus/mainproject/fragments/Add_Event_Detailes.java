@@ -445,7 +445,7 @@ public class Add_Event_Detailes extends Fragment {
 
                 if(e_description.length() <=20 )
                 {
-                    event_description.setError("name must be of minimum 40 characters");
+                    event_description.setError("Description must have atleast 20 words");
                     event_description.requestFocus();
 
                     return;
@@ -453,7 +453,7 @@ public class Add_Event_Detailes extends Fragment {
 
                 if(e_activity_one.length() <=10 )
                 {
-                    event_activity_one.setError("name must be of minimum 30 characters");
+                    event_activity_one.setError("Activity must have atleast 10 words");
                     event_activity_one.requestFocus();
 
 
@@ -462,14 +462,14 @@ public class Add_Event_Detailes extends Fragment {
 
                 if(e_activity_two.length() <=10 )
                 {
-                    event_activity_two.setError("name must be of minimum 30 characters");
+                    event_activity_two.setError("Activity must have atleast 10 words");
                     event_activity_two.requestFocus();
 
                     return;
                 }
                 if(e_activity_three.length() <=10 )
                 {
-                    event_activity_three.setError("name must be of minimum 30 characters");
+                    event_activity_three.setError("Activity must have atleast 10 words");
 
                     event_activity_three.requestFocus();
 
@@ -477,14 +477,14 @@ public class Add_Event_Detailes extends Fragment {
                 }
                 if(e_activity_four.length() <=10 )
                 {
-                    event_activity_four.setError("name must be of minimum 30 characters");
+                    event_activity_four.setError("Activity must have atleast 10 words");
                     event_activity_four.requestFocus();
 
                     return;
                 }
                 if(e_activity_five.length() <=10 )
                 {
-                    event_activity_five.setError("name must be of minimum 30 characters");
+                    event_activity_five.setError("Activity must have atleast 10 words");
                     event_activity_five.requestFocus();
                     return;
                 }
@@ -535,7 +535,7 @@ public class Add_Event_Detailes extends Fragment {
                            c_infodesk.setChecked(false);
                            c_video.setChecked(false);
 
-
+                          Toast.makeText(getContext(),"event successfully added",Toast.LENGTH_LONG).show();
 
 
                       }

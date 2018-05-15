@@ -55,9 +55,11 @@ public class Events_of_user extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
         String email = auth.getCurrentUser().getEmail();
-        database.getReference().child("event").child(email.replace(".","")).addListenerForSingleValueEvent(new ValueEventListener() {
+        database.getReference().child("event").child(email.replace(".","")).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                list.clear();
 
                 for(DataSnapshot d : dataSnapshot.getChildren())
                 {
@@ -151,7 +153,6 @@ public class Events_of_user extends AppCompatActivity {
                     i.putExtra("key" , data.key);
 
                     startActivity(i);
-                    finish();
 
 
 

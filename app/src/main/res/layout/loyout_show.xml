@@ -12,7 +12,7 @@
         android:layout_height="40dp"
         android:textStyle="bold"
         android:padding="10dp"
-        android:text="Logout"/>
+        android:text="Sign Out..."/>
 
 
     <TextView
@@ -34,7 +34,7 @@
             android:textColor="#000"
             android:layout_height="wrap_content"
 
-            android:text="Logout"
+            android:text="Sign Out"
             style="?android:attr/borderlessButtonStyle"
             android:id="@+id/yes"
 

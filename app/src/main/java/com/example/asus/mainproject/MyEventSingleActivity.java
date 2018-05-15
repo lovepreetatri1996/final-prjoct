@@ -120,7 +120,10 @@ public class MyEventSingleActivity extends AppCompatActivity {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
 
 
-                database.getReference().child("event").child(email).child(getIntent().getStringExtra("time")).setValue(null);
+                database.getReference().child("event").child(email).child(getIntent().getStringExtra("key")).setValue(null);
+
+                dialogshow.cancel();
+                finish();
 
 
             }

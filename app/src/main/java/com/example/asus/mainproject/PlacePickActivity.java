@@ -54,6 +54,11 @@ public class PlacePickActivity extends AppCompatActivity {
 
             else {
 
+                Intent i = new Intent();
+                i.putExtra("place" , "");
+
+                setResult(200  , i );
+
                 finish();
             }
         }

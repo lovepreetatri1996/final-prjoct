@@ -270,7 +270,7 @@ public  class SignUP extends AppCompatActivity {
         {
             mobilenumber.requestFocus();
 
-            mobilenumber.setError("phone number  not valids");
+            mobilenumber.setError("phone number  not valid");
 
             return;
 
@@ -289,7 +289,7 @@ public  class SignUP extends AppCompatActivity {
         {
            email.requestFocus();
 
-            email.setError( "please enter email" );
+            email.setError( "please enter valid email" );
 
             return;
         }
@@ -365,6 +365,7 @@ public  class SignUP extends AppCompatActivity {
 
             if(printDifference(date2, date1)/365 < 15 )
             {
+
                 Toast.makeText(SignUP.this , "age must be greater than 15 years" , Toast.LENGTH_SHORT).show();
                 return;}
 
